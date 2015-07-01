@@ -1,0 +1,29 @@
+{
+    "name": "aerospike-p",
+    "version": "0.1.0",
+    "description": "Aerospike client driver - Promisified",
+    "author": {
+        "name": "Daniel Kang",
+        "email": "me@daniel.gs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/d5/aerospike-p"
+    },
+    "main": "lib/index.js",
+    "dependencies": {
+        "aerospike": "1.0.44",
+        "bluebird": "2.x",
+        "lodash": "3.x"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "devDependencies": {
+        "jshint": "2.x",
+        "mocha": "2.x"
+    },
+    "scripts": {
+        "test": "node_modules/.bin/jshint lib && node_modules/.bin/jshint test && node --harmony node_modules/mocha/bin/_mocha test"
+    }
+}
