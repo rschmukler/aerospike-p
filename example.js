@@ -2,8 +2,8 @@
 
 process.env.BLUEBIRD_DEBUG = 1;
 
-var aerospike = require('aerospike'),
-    Client = require('./lib').Client;
+var aerospike = require('./lib'),
+    Client = aerospike.Client;
 
 var client = new Client({
     hosts: [ { addr: '192.168.59.103', port: 3000 } ]

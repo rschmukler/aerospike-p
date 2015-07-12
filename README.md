@@ -1,6 +1,6 @@
 # aerospike-p
 
-Base [aerospike](https://github.com/aerospike/aerospike-client-nodejs) package version: **1.0.44**
+Base [aerospike](https://github.com/aerospike/aerospike-client-nodejs) package version: **1.0.45**
 
 ## Promisification Status
 
