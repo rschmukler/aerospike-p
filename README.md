@@ -162,3 +162,7 @@ You can use these constants, functions, or attributes in the exact same ways as 
 - **Aerospike.scanPriority**
 - **Aerospike.log**
 - **Aerospike.language**
+
+## Implementation Notes
+
+- All Promise objects are implemented using [Bluebird](https://github.com/petkaantonov/bluebird). So you can use Bluebird-specifics (e.g. [.spread()](https://github.com/petkaantonov/bluebird/blob/master/API.md#spreadfunction-fulfilledhandler--function-rejectedhandler----promise)) if you'd like.
