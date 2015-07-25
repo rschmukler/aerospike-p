@@ -56,14 +56,40 @@ var config = {/* ... */};
 var client = aerospike.client(config);   // non-promisified Client object
 ```
 
-All these methods have the same promisification pattern: they take the same arguements except for `callback`, and, they return a `Promise` object that resolves or rejects.
+All these methods have the same promisification pattern: they take the same arguements except for `callback`, and, they return a `Promise` object that resolves or rejects. For more details on the parameters and results of each methods, see corresponding non-promisified methods in [Aerospike.Client](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/client.md).
 
 - **Client.add(key, bins _[, metadata, policy]_)**: resolves to `undefined`
-- **Client.batchExists(keys _[, policy]_)**
-- **Client.batchGet(keys _[, policy]_)**
-- **Client.batchSelect(keys _[, policy]_)**
+- **Client.append(key, bins _[, metadata, policy]_)**: resolves to `[record, metadata_, key]`
+- **Client.batchExists(keys _[, policy]_)**: resolves to `results`
+- **Client.batchGet(keys _[, policy]_)**: resolves to `results`
+- **Client.batchSelect(keys _[, policy]_)**: resolves to `results`
+- **Client.connect()**: resolves to `undefined`
+- **Client.createIntegerIndex(args)**: resolves to `undefined`
+- **Client.createStringIndex(args)**: resolves to `undefined`
+- **Client.execute(key, udfArgs _[, policy]_)**: resolves to `response`
+- **Client.exists(key _[, policy]_)**: resolves to `[metadata, key]`
+- **Client.get(key _[, policy]_)**: resolves to `[record, metadata, key]`
+- **Client.indexRemove(namespace, index _[, policy]_)**: resolves to `undefined`
+- **Client.info(request _[, host, policy]_)**: resolves to `[response, host]`
+- **Client.operate(key, operations _[, metadata, policy]_)**: resolves to `[record, metadata, key]`
+- **Client.prepend(key, bins _[, metadata, policy]_)**: resolves to `[record, metadata, key]`
+- **Client.put(key, record _[, metadata, policy]_)**: resolves to `key`
+- **Client.remove(key _[, policy]_)**: resolves to `key`
+- **Client.select(key, bins _[, policy]_)**: resolves to `[record, metadata, key]`
+- **Client.udfRegister(udfModule _[, policy]_)**: resolves to `undefined`
+- **Client.udfRemove(udfModule _[, policy]_)**: resolves to `undefined`
 
-Parameters:
+These methods have a slightly different patterns.
 
-Returns
+- **Client.close()**: executes synchronously then it returns a Promise that resolves to `undefined` immediately.
+- **Client.LargeList(key, binName _[, writePolicy, createModule])**: returns a Promise that resolves to a promisified `LargeList` instance.
+- **Client.query(namespace, set, statement)**: returns a Promise that resolves to a promisified `Query` instance.
+- **Client.updateLogging()**: executes synchronously then it returns a Promise that resolves to `undefined` immediately.
 
+### LargeList
+
+....
+
+### Query
+
+...
