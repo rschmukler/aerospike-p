@@ -27,52 +27,6 @@ var aerospike = require('aerospike-p');
 var key = aerospike.key('ns1', 'set1', 'key1')
 ```
 
-### Metadata
-
-You can create a new `Metadata` instance by defining a [plain object](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/datamodel.md#metadata).
-
-```javascript
-var metadata = { ttl: 1000, gen: 10 };
-```
-
-**Aerospike.metadata(ttl _[, gen]_)**
-
-Or you can use `.metadata()` function.
-
-```javascript
-var aerospike = require('aerospike-p');
-var metadata = aerospike.metadata(1000, 10); // ttl: 1000, gen: 10
-```
-
-### Statement
-
-You can create a `Statement` instance by defining a [plain object](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/query.md#statement-attributes).
-
-```javascript
-var aerospike = require('aerospike-p');
-var statement = { 
-  filters: [ aerospike.filter.equal('a', 'abc') ],
-  aggregationUDF: { module: 'agg_module', funcname: 'agg_func' }
-}; 
-```
-
-### UDFArgs
-
-You can create a new `UDFArgs` instance by defining a [plain object](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/datamodel.md#udfargs).
-
-```javascript
-var udfArgs = { module: udf_module, funcname: udf_funcname, args: [123, 'str'] }
-```
-
-**Aerospike.udfArgs(moduleName, funcName _[, args]_)**
-
-Or you can use `.udfArgs()` function.
-
-```javascript
-var aerospike = require('aerospike-p');
-var udfArgs = aerospike.udfArgs(udf_module, udf_funcname, [123, 'str']);
-```
-
 ### Client
 
 To create a promisified Client instance:
@@ -119,6 +73,52 @@ You can still create an [original non-promisified Aerospike Client](https://gith
 var aerospike = require('aerospike-p');
 var config = {/* ... */};
 var client = aerospike.client(config);   // non-promisified Client object
+```
+
+### Metadata
+
+You can create a new `Metadata` instance by defining a [plain object](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/datamodel.md#metadata).
+
+```javascript
+var metadata = { ttl: 1000, gen: 10 };
+```
+
+**Aerospike.metadata(ttl _[, gen]_)**
+
+Or you can use `.metadata()` function.
+
+```javascript
+var aerospike = require('aerospike-p');
+var metadata = aerospike.metadata(1000, 10); // ttl: 1000, gen: 10
+```
+
+### Statement
+
+You can create a `Statement` instance by defining a [plain object](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/query.md#statement-attributes).
+
+```javascript
+var aerospike = require('aerospike-p');
+var statement = { 
+  filters: [ aerospike.filter.equal('a', 'abc') ],
+  aggregationUDF: { module: 'agg_module', funcname: 'agg_func' }
+}; 
+```
+
+### UDFArgs
+
+You can create a new `UDFArgs` instance by defining a [plain object](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/datamodel.md#udfargs).
+
+```javascript
+var udfArgs = { module: udf_module, funcname: udf_funcname, args: [123, 'str'] }
+```
+
+**Aerospike.udfArgs(moduleName, funcName _[, args]_)**
+
+Or you can use `.udfArgs()` function.
+
+```javascript
+var aerospike = require('aerospike-p');
+var udfArgs = aerospike.udfArgs(udf_module, udf_funcname, [123, 'str']);
 ```
 
 ### LargeList
