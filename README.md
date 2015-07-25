@@ -1,5 +1,7 @@
 # aerospike-p
 
+A promisified Aerospike Node.js client library.
+
 Base [aerospike](https://github.com/aerospike/aerospike-client-nodejs) package version: **1.0.47**
 
 ## References
@@ -37,6 +39,14 @@ Or you can use `.metadata()` function.
 var aerospike = require('aerospike-p');
 var metadata = aerospike.metadata(1000, 10); // ttl: 1000, gen: 10
 ```
+
+### Statement
+
+...
+
+### UDFArgs
+
+...
 
 ### Client
 
@@ -88,7 +98,24 @@ These methods have a slightly different patterns.
 
 ### LargeList
 
-....
+All these methods have the same promisification pattern: they take the same arguements except for `callback`, and, they return a `Promise` object that resolves or rejects. For more details on the parameters and results of each methods, see corresponding non-promisified methods in [Aerospike.LargeList](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/largelist.md).
+
+- **LargeList.add(value)**: resolves to `response` (value returned by LDT function `add`)
+- **LargeList.add(values)**: resolves to `response` (value returned by LDT function `add`)
+- **LargeList.update(value)**: resolves to `response` (value returned by LDT function `add`)
+- **LargeList.update(values)**: resolves to `response` (value returned by LDT function `add`)
+- **LargeList.remove(value)**: resolves to `response` (value returned by LDT function `add`)
+- **LargeList.remove(values)**: resolves to `response` (value returned by LDT function `add`)
+- **LargeList.removeRange(begin, end)**: resolves to `response` (count of entries removed)
+- **LargeList.find(value)**: resolves to `response` (list of entries selected)
+- **LargeList.find(values, udfArgs)**: resolves to `response` (list of entries selected)
+- **LargeList.find(begin, end)**: resolves to `response` (list of entries selected)
+- **LargeList.find(begin, end, filter)**: resolves to `response` (list of entries selected)
+- **LargeList.scan()**: resolves to `response` (all the entries in the list)
+- **LargeList.filter(udfArgs)**: resolves to `response` (list of entries selected)
+- **LargeList.destroy()**: resolves to `response` (= `undefined`)
+- **LargeList.size()**: resolves to `response` (size of the the list)
+- **LargeList.getConfig()**: resolves to `response` (map of list config parameters)
 
 ### Query
 
