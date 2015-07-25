@@ -46,7 +46,7 @@ var metadata = aerospike.metadata(1000, 10); // ttl: 1000, gen: 10
 
 ### Statement
 
-You can create a new `Statement` instance by defining a [plain object](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/query.md#statement-attributes).
+You can create a `Statement` instance by defining a [plain object](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/query.md#statement-attributes).
 
 ```javascript
 var aerospike = require('aerospike-p');
@@ -83,14 +83,6 @@ var config = {/* ... */};
 var client = new aerospike.Client(config);  // promisified Client object
 ```
 
-You can still create an [original non-promisified Aerospike Client](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/client.md) using `.client()` function:
-
-```javascript
-var aerospike = require('aerospike-p');
-var config = {/* ... */};
-var client = aerospike.client(config);   // non-promisified Client object
-```
-
 All these methods have the same promisification pattern: they take the same arguements except for `callback`, and, they return a `Promise` object that resolves or rejects. For more details on the parameters and results of each methods, see corresponding non-promisified methods in [Aerospike.Client](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/client.md).
 
 - **Client.add(key, bins _[, metadata, policy]_)**: resolves to `undefined`
@@ -120,6 +112,14 @@ These methods have a slightly different patterns.
 - **Client.LargeList(key, binName _[, writePolicy, createModule])**: returns a Promise that resolves to a promisified `LargeList` instance.
 - **Client.query(namespace, set, statement)**: returns a Promise that resolves to a promisified `Query` instance.
 - **Client.updateLogging()**: executes synchronously then it returns a Promise that resolves to `undefined` immediately.
+
+You can still create an [original non-promisified Aerospike Client](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/client.md) using `.client()` function:
+
+```javascript
+var aerospike = require('aerospike-p');
+var config = {/* ... */};
+var client = aerospike.client(config);   // non-promisified Client object
+```
 
 ### LargeList
 
