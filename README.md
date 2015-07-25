@@ -121,3 +121,19 @@ All these methods have the same promisification pattern: they take the same argu
 
 - **Query.execute()**: returns a `RecordStream` object, which is exactly the same as the non-promisified Query.
 - **Query.Info(scanid)**: returns a Promise object that resolves to `scantInfo`.
+
+### Aliases
+
+You can use these constants, functions, or attributes in the exact same ways as you would with the original Aerospike client.
+
+- **Aerospike.policy**
+- **Aerospike.filter**
+- **Aerospike.operations**
+- **Aerospike.operators**
+- **Aerospike.predicates**
+- **Aerospike.IndexType**
+- **Aerospike.status**
+- **Aerospike.scanStatus**
+- **Aerospike.scanPriority**
+- **Aerospike.log**
+- **Aerospike.language**
