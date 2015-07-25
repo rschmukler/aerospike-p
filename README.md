@@ -1,11 +1,20 @@
 # aerospike-p
 
-A promisified Aerospike Node.js client library.
-
-Base [aerospike](https://github.com/aerospike/aerospike-client-nodejs) package version: **1.0.47**
+**aerospike-p** is a promisified Aerospike Node.js client library. It internally uses an official [aerospike](https://github.com/aerospike/aerospike-client-nodejs) (**1.0.47**) client driver.
 
 ```javascript
-/* some sample code goes here */
+var aerospike = require('aerospike-p');
+
+var client = new aerospike.Client({ hosts: [{ addr: '127.0.0.1', port: 3000 }] });
+
+client.connect().then(function() {
+    return client.put(aerospike.key('test', 'set1', 'key1'), { field1: 'value1' });
+}).then(function() {
+    return client.get(aerospike.key('test', 'set1', 'key1'));
+}).then(function(res) {
+    console.log(res[0]);
+    return client.close();
+});
 ```
 
 ## References
