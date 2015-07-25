@@ -1,50 +1,21 @@
 # aerospike-p
 
-Base [aerospike](https://github.com/aerospike/aerospike-client-nodejs) package version: **1.0.45**
+Base [aerospike](https://github.com/aerospike/aerospike-client-nodejs) package version: **1.0.47**
 
-## Promisification Status
+## Client
 
-### Client
+To create a new Client instance:
 
-Promisified:
-- add()
-- append()
-- batchExists()
-- batchGet()
-- batchSelect()
-- connect()
-- createIntegerIndex()
-- createStringIndex()
-- execute()
-- exists()
-- get()
-- info()
-- indexRemove()
-- operate()
-- prepend()
-- put()
-- remove()
-- select()
-- udfRegister()
-- udfRemove()
+```javascript
+var aerospike = require('aerospike-p');
+var config = {};
+var client = new aerospike.Client(config);
+```
 
-Other methods:
-- LargeList(): returns a promisified LargeList object
-- query(): return raw `query` object (not promisified)
-- updateLogging(): executes raw `updateLogging()` function (not returning Promise)
-- close(): executes raw `close()` function then resolves to undefined
+You can still create an original non-promisified Aerospike Client using `.client()` function:
 
-### LargeList
-
-Promisified:
-- add()
-- update()
-- remove()
-- removeRange()
-- find()
-- findRange()
-- scan()
-- filter()
-- destroy()
-- size()
-- getConfig()
+```javascript
+var aerospike = require('aerospike-p');
+var config = {};
+var client = aerospike.client(config);
+```
