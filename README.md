@@ -1,5 +1,7 @@
 # aerospike-p
 
+[![npm version](https://badge.fury.io/js/aerospike-p.svg)](http://badge.fury.io/js/aerospike-p)
+
 **aerospike-p** is a promisified Aerospike Node.js client library. It internally uses an official [aerospike](https://github.com/aerospike/aerospike-client-nodejs) (**1.0.47**) client driver.
 
 ```javascript
