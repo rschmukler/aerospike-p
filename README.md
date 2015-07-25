@@ -46,7 +46,20 @@ var metadata = aerospike.metadata(1000, 10); // ttl: 1000, gen: 10
 
 ### UDFArgs
 
-...
+You can create a new `UDFArgs` instance by defining a plain object.
+
+```javascript
+var udfArgs = { module: udf_module, funcname: udf_funcname, args: [123, 'str'] }
+```
+
+**Aerospike.udfArgs(moduleName, funcName _[, args]_)**
+
+Or you can use `.udfArgs()` function.
+
+```javascript
+var aerospike = require('aerospike-p');
+var udfArgs = aerospike.udfArgs(udf_module, udf_funcname, [123, 'str']);
+```
 
 ### Client
 
