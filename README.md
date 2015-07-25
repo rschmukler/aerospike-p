@@ -6,17 +6,19 @@ Base [aerospike](https://github.com/aerospike/aerospike-client-nodejs) package v
 
 ### Key
 
-You can create a new `Key` instance using `.key()` function.
+You can create a new `Key` instance by defining a plain object.
+
+```javascript
+var key = { ns: 'ns1', set: 'set1', key: 'key1' };
+```
+
+**Aerospike.key(namespace, set, key _[, digest]_)**
+
+Or, you can use `.key()` function.
 
 ```javascript
 var aerospike = require('aerospike-p');
 var key = aerospike.key('ns1', 'set1', 'key1')
-```
-
-Or, you can simply define a plain object.
-
-```javascript
-var key = { ns: 'ns1', set: 'set1', key: 'key1' };
 ```
 
 ### Metadata
@@ -26,6 +28,8 @@ You can create a new `Metadata` instance by defining a plain object.
 ```javascript
 var metadata = { ttl: 1000, gen: 10 };
 ```
+
+**Aerospike.metadata(ttl _[, gen]_)**
 
 Or you can use `.metadata()` function.
 
@@ -44,12 +48,22 @@ var config = {/* ... */};
 var client = new aerospike.Client(config);  // promisified Client object
 ```
 
-You can still create an original non-promisified Aerospike Client using `.client()` function:
+You can still create an [original non-promisified Aerospike Client](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/client.md) using `.client()` function:
 
 ```javascript
 var aerospike = require('aerospike-p');
 var config = {/* ... */};
 var client = aerospike.client(config);   // non-promisified Client object
 ```
-#### .add(key, bins, metadata, policy)
+
+All these methods have the same promisification pattern: they take the same arguements except for `callback`, and, they return a `Promise` object that resolves or rejects.
+
+- **Client.add(key, bins _[, metadata, policy]_)**: resolves to `undefined`
+- **Client.batchExists(keys _[, policy]_)**
+- **Client.batchGet(keys _[, policy]_)**
+- **Client.batchSelect(keys _[, policy]_)**
+
+Parameters:
+
+Returns
 
