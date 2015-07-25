@@ -1,7 +1,7 @@
 {
     "name": "aerospike-p",
-    "version": "0.1.1",
-    "description": "Promisified Aerospike client driver",
+    "version": "0.2.0",
+    "description": "Promisified Aerospike Node.js client",
     "author": {
         "name": "Daniel Kang",
         "email": "me@daniel.gs"
@@ -12,10 +12,9 @@
     },
     "main": "lib/index.js",
     "dependencies": {
-        "aerospike": "1.0.45",
+        "aerospike": "1.0.47",
         "bluebird": "2.x",
-        "lodash": "3.x",
-        "deep-defaults": "1.x"
+        "lodash": "3.x"
     },
     "engines": {
         "node": ">=0.10.0"
