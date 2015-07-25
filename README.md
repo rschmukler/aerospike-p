@@ -119,4 +119,5 @@ All these methods have the same promisification pattern: they take the same argu
 
 ### Query
 
-...
+- **Query.execute()**: returns a `RecordStream` object, which is exactly the same as the non-promisified Query.
+- **Query.Info(scanid)**: returns a Promise object that resolves to `scantInfo`.
