@@ -25,7 +25,7 @@ var key = aerospike.key('ns1', 'set1', 'key1')
 
 ### Metadata
 
-You can create a new `Metadata` instance by defining a plain object.
+You can create a new `Metadata` instance by defining a [plain object](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/datamodel.md#metadata).
 
 ```javascript
 var metadata = { ttl: 1000, gen: 10 };
@@ -42,11 +42,19 @@ var metadata = aerospike.metadata(1000, 10); // ttl: 1000, gen: 10
 
 ### Statement
 
-...
+You can create a new `Statement` instance by defining a [plain object](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/query.md#statement-attributes).
+
+```javascript
+var aerospike = require('aerospike-p');
+var statement = { 
+  filters: [ aerospike.filter.equal('a', 'abc') ],
+  aggregationUDF: { module: 'agg_module', funcname: 'agg_func' }
+}; 
+```
 
 ### UDFArgs
 
-You can create a new `UDFArgs` instance by defining a plain object.
+You can create a new `UDFArgs` instance by defining a [plain object](https://github.com/aerospike/aerospike-client-nodejs/blob/master/docs/datamodel.md#udfargs).
 
 ```javascript
 var udfArgs = { module: udf_module, funcname: udf_funcname, args: [123, 'str'] }
