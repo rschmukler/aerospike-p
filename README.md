@@ -4,6 +4,10 @@ A promisified Aerospike Node.js client library.
 
 Base [aerospike](https://github.com/aerospike/aerospike-client-nodejs) package version: **1.0.47**
 
+```javascript
+/* some sample code goes here */
+```
+
 ## References
 
 ### Key
