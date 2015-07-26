@@ -13,7 +13,7 @@
     "url" : "https://github.com/aerospike/aerospike-client-nodejs"
   },
   "dependencies": {
-    "aerospike": ">0",
+    "aerospike-p": "0.x",
     "cli-table": "0.2.0",
     "colors": "0.6.2",
     "yargs":"1.2.1",

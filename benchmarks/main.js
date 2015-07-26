@@ -20,7 +20,7 @@
  *
  ***********************************************************************/
 
-var aerospike = require('aerospike');
+var aerospike = require('aerospike-p');
 var cluster = require('cluster');
 var yargs = require('yargs');
 var os = require('os');

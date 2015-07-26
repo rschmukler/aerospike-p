@@ -20,7 +20,7 @@
  *
  ***********************************************************************/
 
-var aerospike = require('aerospike');
+var aerospike = require('aerospike-p');
 var cluster = require('cluster');
 var yargs = require('yargs');
 var path = require('path');
@@ -168,9 +168,9 @@ if(argv.password !== null)
 	config.password = argv.password;
 }
 
-var client = aerospike.client(config);
+var client = new aerospike.Client(config);
 
-client.connect(function(err) {
+client.connect().catch(function(err) {
     if ( err.code !== 0 ) {
         logger.error("Aerospike server connection error: ", err);
         process.exit(1);
@@ -186,9 +186,12 @@ client.connect(function(err) {
 function get(command, done) {
     var time_start = process.hrtime();
 
-    client.get({ns: argv.namespace, set: argv.set, key: command[1]}, function(_error, _record, _metadata, _key) {
+    client.get({ns: argv.namespace, set: argv.set, key: command[1]}).then(function() {
         var time_end = process.hrtime();
-        done(_error.code, time_start, time_end, READ);
+        done(status.AEROSPIKE_OK, time_start, time_end, READ);
+    }).catch(function(err) {
+        var time_end = process.hrtime();
+        done(err.asError.code, time_start, time_end, READ);
     });
 }
 
@@ -200,9 +203,12 @@ var metadata = {
 function put(command, done) {
     var time_start = process.hrtime();
     
-    client.put({ns: argv.namespace, set: argv.set, key: command[1]}, command[2], metadata, function(_error, _record, _metadata, _key) {
+    client.put({ns: argv.namespace, set: argv.set, key: command[1]}, command[2], metadata).then(function() {
         var time_end = process.hrtime();
-        done(_error.code, time_start, time_end, WRITE);
+        done(status.AEROSPIKE_OK, time_start, time_end, WRITE);
+    }).catch(function(err) {
+        var time_end = process.hrtime();
+        done(err.asError.code, time_start, time_end, WRITE);
     });
 }
 
