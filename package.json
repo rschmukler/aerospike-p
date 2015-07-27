@@ -21,13 +21,9 @@
     },
     "devDependencies": {
         "jshint": "2.x",
-        "expect.js": "0.2.x",
-        "superagent": "0.15.x",
-        "yargs": "1.2.1",
         "mocha": "2.x"
     },
     "scripts": {
-        "test_": "node_modules/.bin/jshint lib && node_modules/.bin/jshint test && node node_modules/mocha/bin/_mocha test",
-        "test": "node_modules/.bin/jshint lib && node node_modules/mocha/bin/_mocha test"
+        "test": "node_modules/.bin/jshint lib && node_modules/.bin/jshint test && node --harmony node_modules/mocha/bin/_mocha test"
     }
 }
