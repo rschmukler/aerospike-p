@@ -1,4 +1,3 @@
 -R spec
 -t 10s
---require ./test/setup
 --recursive

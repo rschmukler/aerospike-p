@@ -16,5 +16,5 @@
 
   "-W080": true,
 
-  "globals": [ "it", "describe", "before", "after", "beforeEach", "afterEach" ]
+  "predef": [ "it", "describe", "before", "after", "beforeEach", "afterEach" ]
 }
