@@ -1,6 +1,6 @@
 {
     "name": "aerospike-p",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Promisified Aerospike Node.js client",
     "author": {
         "name": "Daniel Kang",
