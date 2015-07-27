@@ -19,6 +19,18 @@ client.connect().then(function() {
 });
 ```
 
+## Conversion Notes
+
+- All returned promises resolve when the underlying operation was successful (`error.code === AEROSPIKE_OK`).
+    - If the number of arguments of the original callback function was 1 (`error`), promisified function resolves to `undefined`.
+    - If the number of arguments of the original callback function was 2 (`error`, `param1`), promisified function resolves to the second argument (`param1`).
+    - If the number of arguments of the original callback function was more than 2, promisified function resolves to an array of all arguments except for `error`.
+- All returned promises reject when the underlying operation was failure (`error.code !== AEROSPIKE_OK`).
+    - Promisified function rejects with the same `error` object.
+- All Promise objects are implemented using [Bluebird](https://github.com/petkaantonov/bluebird). So you can use some Bluebird goodies (e.g. [.spread()](https://github.com/petkaantonov/bluebird/blob/master/API.md#spreadfunction-fulfilledhandler--function-rejectedhandler----promise)) if you'd like.
+- **aerospike-p** is fully compatible with the original [aerospike](https://github.com/aerospike/aerospike-client-nodejs). 
+    - So you should be able to change `require('aerospike')` to `require('aerospike-p')` in your code with no changes. _(But, of course, your code is still non-promisified.)_
+
 ## References
 
 ### Key
@@ -173,7 +185,3 @@ You can use these constants, functions, or attributes in the exact same ways as 
 - **Aerospike.scanPriority**
 - **Aerospike.log**
 - **Aerospike.language**
-
-## Implementation Notes
-
-- All Promise objects are implemented using [Bluebird](https://github.com/petkaantonov/bluebird). So you can use Bluebird-specifics (e.g. [.spread()](https://github.com/petkaantonov/bluebird/blob/master/API.md#spreadfunction-fulfilledhandler--function-rejectedhandler----promise)) if you'd like.
