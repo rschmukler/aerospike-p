@@ -114,7 +114,6 @@ describe('utils/promisify', function() {
     describe('invalid methods', function() {
         expectError({}, ['foo'], {}); // not exists
         expectError({ foo: 'bar' }, ['foo'], {}); // not a function
-        expectError({ foo: emptyFn }, ['foo'], {}); // empty function
     });
 
     describe('empty method list', function() {
